@@ -14,9 +14,9 @@ find_package( CSparse REQUIRED )
 
 include_directories( 
     ${OpenCV_INCLUDE_DIRS} 
-    ${G2O_INCLUDE_DIRS}
+    ${G2O_INCLUDE_DIR}
     ${CSPARSE_INCLUDE_DIR}
-    "/usr/include/eigen3/"
+    "/usr/local/include/eigen3/"
 )
 
 add_executable( feature_extraction feature_extraction.cpp  )
@@ -34,12 +34,12 @@ add_executable( pose_estimation_3d2d pose_estimation_3d2d.cpp )
 target_link_libraries( pose_estimation_3d2d 
    ${OpenCV_LIBS}
    ${CSPARSE_LIBRARY}
-   g2o_core g2o_stuff g2o_types_sba g2o_csparse_extension
+        ${G2O_CORE_LIBRARY} ${G2O_STUFF_LIBRARY} ${G2O_TYPES_SBA}
 )
 
 add_executable( pose_estimation_3d3d pose_estimation_3d3d.cpp )
 target_link_libraries( pose_estimation_3d3d 
    ${OpenCV_LIBS}
-   g2o_core g2o_stuff g2o_types_sba g2o_csparse_extension 
+     ${G2O_CORE_LIBRARY} ${G2O_STUFF_LIBRARY} ${G2O_TYPES_SBA}
    ${CSPARSE_LIBRARY}
 )

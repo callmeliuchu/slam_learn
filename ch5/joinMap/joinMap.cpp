@@ -42,7 +42,7 @@ int main( int argc, char** argv )
     double cy = 253.5;
     double fx = 518.0;
     double fy = 519.0;
-    double depthScale = 1000.0;
+    double depthScale = 100.0;
     
     cout<<"正在将图像转换为点云..."<<endl;
     
